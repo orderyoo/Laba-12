@@ -1,19 +1,17 @@
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args){
-        String ip = "1.0.0.0";
-        String ip1 = "191.34.199.1";
-        String ip2 = "255.249.9.9";
-        String ip3 = "255.275.9.1";
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ваш ip: ");
+        String ipv4 = scanner.nextLine();
         Pattern pattern = Pattern.compile("^(([0-9]|[1-9][0-9]|1([0-9]{2})|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1([0-9]{2})|2[0-4][0-9]|25[0-5])$");
-        Matcher matcher = pattern.matcher(ip);
-        System.out.println(pattern.matcher(ip).find());
-        System.out.println(pattern.matcher(ip1).find());
-        System.out.println(pattern.matcher(ip2).find());
-        System.out.println(pattern.matcher(ip3).find());
-
-
+        if(pattern.matcher(ipv4).find()){
+            System.out.println("Корректный IP");
+        } else {
+            System.out.println("Неверный IP");
+        }
     }
 }
